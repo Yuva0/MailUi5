@@ -1,0 +1,19 @@
+<mvc:View xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" controllerName="main.Email2.controller.DetailDetail"
+	xmlns:html="http://www.w3.org/1999/xhtml">
+	<App>
+		<pages>
+			<Page title="Title" id="dd">
+				<content>
+					<ObjectHeader
+						title="{Title}" backgroundDesign="Solid">
+						<attributes>
+							<ObjectAttribute title="Name:" text="{Sender}" />
+							<ObjectAttribute title="Sent Date:" text="{SentDate}" />
+						</attributes>
+					</ObjectHeader>
+					<Text text="{Data}"/>
+				</content>
+			</Page>
+		</pages>
+	</App>
+</mvc:View>

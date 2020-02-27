@@ -1,0 +1,80 @@
+<mvc:View xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" controllerName="main.Email2.controller.Detail"
+	xmlns:html="http://www.w3.org/1999/xhtml">
+	<App>
+		<pages>
+			<Page title="Title">
+				<content>
+					<List id="nlg" items="{
+						path:'tempMails>/',
+						sorter:[
+						{
+							path: 'SentDate',
+							group : true,
+							descending: true
+						},
+						{
+							path: 'unread',
+							group:true,
+							descending:true
+						}]}">
+						<headerToolbar>
+							<Toolbar>
+								<Title text="{i18n>FocusedMsg}"/>
+								<ToolbarSpacer/>
+								<SearchField width="70%" search="onFilterProducts" placeholder="Search name"/>
+							</Toolbar>
+						</headerToolbar>
+						<items>
+							<FeedListItem id="nli" sender="{tempMails>Sender}" text="{tempMails>Title}" type="Navigation" timestamp="{tempMails>Time}" showIcon="false" unread="{tempMails>unread}" press=".onPressed">
+										
+							</FeedListItem>
+						</items>
+					</List>
+					<!--<List>-->
+					<!--	<headerToolbar>-->
+					<!--		<Toolbar>-->
+					<!--			<Title text="{i18n>FocusedMsg}"/>-->
+					<!--			<ToolbarSpacer/>-->
+					<!--			<SearchField width="70%" search="onFilterProducts" placeholder="Search name"/>-->
+					<!--		</Toolbar>-->
+					<!--	</headerToolbar>-->
+					<!--	<NotificationListGroup id="nlg" title="Mails" type="Navigation" items="{-->
+					<!--	path:'tempMails>/',-->
+					<!--	sorter:[-->
+					<!--	{-->
+					<!--		path: 'SentDate',-->
+					<!--		group : true,-->
+					<!--		descending: true-->
+					<!--	},-->
+					<!--	{-->
+					<!--		path: 'unread',-->
+					<!--		group:true,-->
+					<!--		descending:true-->
+					<!--	}]}"-->
+					<!--	showCloseButton="false">-->
+					<!--		<items>-->
+					<!--			<NotificationListItem id="nli" authorName="{tempMails>Sender}" title="{tempMails>Title}" description="{tempMails>Data}" unread="{tempMails>unread}" datetime="{tempMails>SentDate}" showCloseButton="false" press=".onPressed">-->
+					<!--			</NotificationListItem>-->
+					<!--		</items>-->
+					<!--	</NotificationListGroup>-->
+						<!--<NotificationListGroup id="detail_nlg" title="Mails" showCloseButton="false" type="Navigation" items="{-->
+						<!--	path:'mails>/',-->
+						<!--	sorter:{-->
+						<!--		path: 'SentDate',-->
+						<!--		group : true,-->
+						<!--		descending: true-->
+						<!--	}-->
+						<!--}">-->
+						<!--	<items>-->
+						<!--		<NotificationListItem authorName="{mails>Sender}" title="{mails>Title}" showCloseButton="false"-->
+						<!--		description="{mails>Data}" unread="{mails>unread}" datetime="{mails>SentDate}" press=".onPressed"-->
+						<!--		>-->
+						<!--		</NotificationListItem>-->
+						<!--	</items>-->
+						<!--</NotificationListGroup>-->
+					<!--</List>-->
+				</content>
+			</Page>
+		</pages>
+	</App>
+</mvc:View>

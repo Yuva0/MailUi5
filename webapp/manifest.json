@@ -1,0 +1,145 @@
+{
+	"_version": "1.12.0",
+	"sap.app": {
+		"id": "main.Email2",
+		"type": "application",
+		"i18n": "i18n/i18n.properties",
+		"applicationVersion": {
+			"version": "1.0.0"
+		},
+		"title": "{{appTitle}}",
+		"description": "{{appDescription}}",
+		"sourceTemplate": {
+			"id": "ui5template.basicSAPUI5ApplicationProject",
+			"version": "1.40.12"
+		}
+	},
+	"sap.ui": {
+		"technology": "UI5",
+		"icons": {
+			"icon": "",
+			"favIcon": "",
+			"phone": "",
+			"phone@2": "",
+			"tablet": "",
+			"tablet@2": ""
+		},
+		"deviceTypes": {
+			"desktop": true,
+			"tablet": true,
+			"phone": true
+		}
+	},
+	"sap.ui5": {
+		"flexEnabled": false,
+		"rootView": {
+			"viewName": "main.Email2.view.App",
+			"type": "XML",
+			"async": true,
+			"id": "App"
+		},
+		"dependencies": {
+			"minUI5Version": "1.65.6",
+			"libs": {
+				"sap.ui.layout": {},
+				"sap.ui.core": {},
+				"sap.m": {}
+			}
+		},
+		"contentDensities": {
+			"compact": true,
+			"cozy": true
+		},
+		"models": {
+			"i18n": {
+				"type": "sap.ui.model.resource.ResourceModel",
+				"settings": {
+					"bundleName": "main.Email2.i18n.i18n"
+				}
+			},
+			"mails": {
+				"type": "sap.ui.model.json.JSONModel",
+				"uri": "model/Mails.json"
+			},
+			"tempMails": {
+				"type": "sap.ui.model.json.JSONModel",
+				"uri": "model/tempMails.json"
+			}
+		},
+		"resources": {
+			"css": [{
+				"uri": "css/style.css"
+			}]
+		},
+		"routing": {
+			"config": {
+				"routerClass": "sap.f.routing.Router",
+				"viewType": "XML",
+				"async": true,
+				"viewPath": "main.Email2.view",
+				"controlId": "fclayout",
+				"transition": "slide",
+				"clearControlAggregation": false
+			},
+			"routes": [{
+				"name": "blank",
+				"pattern": "",
+				"target": ["Master"]
+			}, {
+				"name": "RouteApp",
+				"pattern": "RouteApp",
+				"target": ["TargetApp"]
+			}, {
+				"name": "Detail",
+				"pattern": "category/{categoryid}",
+				"titleTarget": "",
+				"greedy": false,
+				"target": ["Master", "Detail"]
+			}, {
+				"name": "DetailDetail",
+				"pattern": "id/{id}",
+				"titleTarget": "",
+				"greedy": false,
+				"target": ["Master", "Detail", "DetailDetail"]
+			}],
+			"targets": {
+				"TargetApp": {
+					"viewType": "XML",
+					"transition": "slide",
+					"clearControlAggregation": false,
+					"viewId": "App",
+					"viewName": "App",
+					"controlAggregation": "pages",
+					"controlId": "app"
+				},
+				"Master": {
+					"viewType": "XML",
+					"transition": "slide",
+					"viewName": "Master",
+					"controlAggregation": "beginColumnPages",
+					"controlId": "fclayout",
+					"viewId": "master",
+					"viewLevel": 1
+				},
+				"Detail": {
+					"viewType": "XML",
+					"transition": "slide",
+					"viewName": "Detail",
+					"viewId": "detail",
+					"controlAggregation": "midColumnPages",
+					"controlId": "fclayout",
+					"viewLevel": 2
+				},
+				"DetailDetail": {
+					"viewType": "XML",
+					"transition": "slide",
+					"viewName": "DetailDetail",
+					"viewId": "detaildetail",
+					"controlAggregation": "endColumnPages",
+					"controlId": "fclayout",
+					"viewLevel": 3
+				}
+			}
+		}
+	}
+}

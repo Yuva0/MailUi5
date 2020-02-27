@@ -1,0 +1,40 @@
+<mvc:View controllerName="main.Email2.controller.App" xmlns:mvc="sap.ui.core.mvc" displayBlock="true" xmlns="sap.m" xmlns:f="sap.f" xmlns:tnt="sap.tnt">
+	<Shell id="shell">
+		<App id="app">
+			<pages>
+				<Page id="page" title="{i18n>title}">
+					<customHeader>
+						<tnt:ToolHeader>
+							<Button icon="sap-icon://home" type="Transparent"/>
+							<IconTabHeader
+								id="iconTabHeader"
+								backgroundDesign="Transparent"
+								mode="Inline">
+								<items>
+									<IconTabFilter text="Documentation" />
+									<IconTabFilter text="Explored" />
+									<IconTabFilter text="API Reference" />
+									<IconTabFilter text="Demo Apps" />
+								</items>
+							</IconTabHeader>
+						</tnt:ToolHeader>
+					</customHeader>
+					<f:FlexibleColumnLayout
+						id="fclayout"
+						layout="ThreeColumnsEndExpanded"
+						backgroundDesign="Translucent">
+						<f:beginColumnPages>
+							<mvc:XMLView id="master" viewName="main.Email2.view.Master"/>
+						</f:beginColumnPages>
+						<f:midColumnPages>
+							<mvc:XMLView id="detail" viewName="main.Email2.view.Detail"/>
+						</f:midColumnPages>
+						<f:endColumnPages>
+							<mvc:XMLView id="detaildetail" viewName="main.Email2.view.DetailDetail"/>
+						</f:endColumnPages>
+					</f:FlexibleColumnLayout>
+				</Page>
+			</pages>
+		</App>
+	</Shell>
+</mvc:View>

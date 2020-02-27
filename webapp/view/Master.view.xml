@@ -1,0 +1,16 @@
+<mvc:View xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" controllerName="main.Email2.controller.Master"
+	xmlns:html="http://www.w3.org/1999/xhtml">
+	<App>
+		<pages>
+			<Page title="tanuj.sengupta@sap.com">
+				<content>
+					<List headerText="Category">
+						<StandardListItem title="Inbox" type="Navigation" press=".showInbox" />
+						<StandardListItem title="Drafts" type="Navigation" press=".showDrafts"/>
+						<StandardListItem title="Sent Items" type="Navigation" press=".sentItems"/>
+					</List>
+				</content>
+			</Page>
+		</pages>
+	</App>
+</mvc:View>
